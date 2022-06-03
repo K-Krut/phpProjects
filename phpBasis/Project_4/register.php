@@ -21,7 +21,12 @@ session_start();
     <script type="text/javascript" src="assets/js/JQuery3.3.1.js"></script>
     <script type="text/javascript" src="assets/js/lightslider.js"></script>
     <script type="text/javascript" src="assets/js/include-main.js"></script>
+    <?php
 
+    if ($_SESSION["user"]) {
+        header('Location: ' . "/");
+    }
+    ?>
 </head>
 <body>
 <header class='nav-scrolled'>
@@ -56,20 +61,28 @@ session_start();
 <div class="body-class">
     <div class="login-wrap">
         <div class="login-html">
-            <label class="tab">Sign In</label>
-            <a href="register.php"><label class="tab">Register</label></a>
-            <div class="login-form">
-                <div class="sign-in-htm">
+            <label class="tab">Register</label>
+            <a href="login.php"><label class="tab">Sign In</label></a>=
+            <div class="login-form" method="post" action="register.php">
+                <div class="sign-up-htm">
                     <div class="group">
-                        <label for="user" class="label">Email/Username</label>
-                        <input id="user" type="text" class="input">
+                        <label for="user" class="label">Username</label>
+                        <input type="text" name="username" value="">
+                    </div>
+                    <div class="group">
+                        <label for="user" class="label">Email Address</label>
+                        <input type="email" name="email" value="">
                     </div>
                     <div class="group">
                         <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password">
+                        <input type="password" name="password_1">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input type="password" name="password_2">
                     </div>
                     <div class="group" style="margin-top: 30px">
-                        <input type="submit" class="button" value="Sign In">
+                        <input type="submit" class="button" value="Sign Up">
                     </div>
                 </div>
             </div>
