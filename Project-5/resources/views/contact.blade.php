@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Contact</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @include('includes.style')
-</head>
-<body>
+@extends('layouts.layout')
 
-@include('includes.navigation')
+@section('titale-block')
+    Contact
+@endsection
 
-
-<div class="body-class">
-    <div class="title-in-progress">
-        <h1>Contact</h1>
+@section('content')
+    <div class="body-class">
+        <div class="login-wrap">
+            <div class="login-html">
+                <label class="tab">Contact Us</label>
+                <form method="post" action="{{route('contact_form_process')}}" class="login-form">
+                    @csrf
+                    <div class="sign-in-htm">
+                        <div class="group">
+                            <label class="label">Email/Username</label>
+                            <input
+                                style="opacity: .2; @error('email') border:darkred; background-color:darkred; color: #c1b2a0; @enderror"
+                                id="email" name="email" type="text" class="input">
+                        </div>
+                        <div class="group">
+                            <label class="label">Message</label>
+                            <textarea
+                                style="opacity: .2; @error('text') border:darkred; background-color:darkred; color: #c1b2a0; @enderror"
+                                id="text" type="text" name="text" class="input"></textarea>
+                        </div>
+                        <div class="group" style="margin-top: 30px">
+                            <input type="submit" class="button" value="Send">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
-
-@include('includes.footer')
-@include('includes.scripts')
-</body>
-</html>
+@endsection

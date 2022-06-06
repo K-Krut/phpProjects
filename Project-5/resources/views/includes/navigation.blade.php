@@ -8,15 +8,22 @@
                 </label>
 
                 <ul class="menu-box">
-                    <li><a class="menu-item" href="index">Home</a></li>
-                    <li><a class="menu-item" href="catalogue">Catalogue</a></li>
-                    <li><a class="menu-item" href="delivery">Delivery</a></li>
-                    <li><a class="menu-item" href="contact">Contact</a></li>
-                    <li><a class="menu-item" href="about">About</a></li>
-                    <li><a class="menu-item" href="login">Login</a></li>
+                    <li><a class="menu-item" href="{{route('home')}}">Home</a></li>
+                    <li><a class="menu-item" href="{{route('catalogue')}}">Catalogue</a></li>
+                    <li><a class="menu-item" href="{{route('delivery')}}">Delivery</a></li>
+                    <li><a class="menu-item" href="{{route('contact')}}">Contact</a></li>
+                    <li><a class="menu-item" href="{{route('about')}}">About</a></li>
+                    @auth('web')
+                        <li><a class="menu-item" href="{{route('logout')}}">Logout</a></li>
+                    @endauth
+
+                    @guest('web')
+                        <li><a class="menu-item" href="{{route('login')}}">Login</a></li>
+                    @endguest
+
                 </ul>
             </div>
-            <li><a href="catalogue" class="icon catalog-icon"></a></li>
+            <li><a href="{{route('catalogue')}}" class="icon catalog-icon"></a></li>
         </ul>
         <div class="logo">
             <h4 style="margin-top: 2%">želtas</h4>
