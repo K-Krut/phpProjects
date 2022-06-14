@@ -30,7 +30,16 @@
                     <li><a class="menu-item" href="delivery.php">Delivery</a></li>
                     <li><a class="menu-item" href="contact.php">Contact</a></li>
                     <li><a class="menu-item" href="about.php">About</a></li>
-                    <li><a class="menu-item" href="login.php">Login</a></li>
+<!--                    <li><a class="menu-item" href="login.php">Login</a></li>-->
+                    <li><a class="menu-item" href="login.php">
+                            <?php
+                            if ($_COOKIE['user'] == ''):
+                                ?>
+                                Login
+                            <?php else: ?>
+                                Log Out
+                            <?php endif; ?>
+                        </a></li>
                 </ul>
             </div>
             <li><a href="catalogue.php" class="icon catalog-icon"></a></li>
@@ -262,7 +271,6 @@ require "includes/intro-footer.php";
 </script>
 <script>
     const header = document.querySelector('header');
-    // const sectionIntro = document.querySelector('.Intro');
 
     const sectionIntro = $(window).width() <= 450 ? document.querySelector('#Intro-mobile') :
         document.querySelector('.Intro');
